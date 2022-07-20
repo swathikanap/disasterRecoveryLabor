@@ -18,7 +18,6 @@ import com.training.recovery.labor.model.Machine;
 import com.training.recovery.labor.service.MachineService;
 
 @RestController
-@RequestMapping("/machines")
 public class MachineController {
 	
 	@Autowired
@@ -59,5 +58,5 @@ public class MachineController {
     public String delete(@PathVariable(value = "id") Integer id){
 		machineService.deleteMachine(id);
         return "success";
-    } 
+    }
 }

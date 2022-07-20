@@ -18,7 +18,6 @@ import com.training.recovery.labor.model.Timesheet;
 import com.training.recovery.labor.service.TimesheetService;
 
 @RestController
-@RequestMapping("/timesheets")
 public class TimesheetController {
 	
 	@Autowired
@@ -59,5 +58,5 @@ public class TimesheetController {
     public String delete(@PathVariable(value = "id") Integer id){
 		timesheetService.deleteTimesheet(id);
         return "success";
-    } 
+    }
 }
