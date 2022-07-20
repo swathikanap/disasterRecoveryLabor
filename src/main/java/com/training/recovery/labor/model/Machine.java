@@ -15,21 +15,22 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name="timescheets")
-public class Timesheet {
+@Table(name="machines")
+public class Machine {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
 	@NotEmpty
-	private String siteCode;
+	private String code;
 	
 	@NotEmpty
-	private String name;
+	private String description;
 	
-	private Integer hours;
+	private Integer hourlyRate;
 	
-	@NotEmpty
-	private String approvalStatus;
+	private Integer maxHours;
+	
+
 }
