@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,6 +31,17 @@ public class MachineController {
 	        return new ResponseEntity<Machine>(machine, HttpStatus.OK);
 	    } catch (NoSuchElementException e) {
 	        return new ResponseEntity<Machine>(HttpStatus.NOT_FOUND);
+	    }      
+	}
+	
+	@PutMapping("/machine/{id}")
+	public ResponseEntity<?> update(@RequestBody Machine machine, @PathVariable Integer id) {
+	    try {
+	      machine.setId(id);
+	      machineService.saveMachine(machine);
+	      return new ResponseEntity<>(HttpStatus.OK);	
+	    }catch (NoSuchElementException e) {
+	    	return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	    }      
 	}
 	

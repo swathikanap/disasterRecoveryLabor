@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,6 +31,17 @@ public class TimesheetController {
 	        return new ResponseEntity<Timesheet>(timesheet, HttpStatus.OK);
 	    } catch (NoSuchElementException e) {
 	        return new ResponseEntity<Timesheet>(HttpStatus.NOT_FOUND);
+	    }      
+	}
+	
+	@PutMapping("/timesheet/{id}")
+	public ResponseEntity<?> update(@RequestBody Timesheet timesheet, @PathVariable Integer id) {
+	    try {
+	      timesheet.setId(id);
+	      timesheetService.saveTimesheet(timesheet);
+	      return new ResponseEntity<>(HttpStatus.OK);	
+	    }catch (NoSuchElementException e) {
+	    	return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	    }      
 	}
 	
