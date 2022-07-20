@@ -58,5 +58,5 @@ public class JobController {
     public String delete(@PathVariable(value = "id") Integer id){
         jobService.deleteJob(id);
         return "success";
-    }
+    } 
 }

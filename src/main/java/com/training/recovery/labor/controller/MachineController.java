@@ -59,5 +59,5 @@ public class MachineController {
     public String delete(@PathVariable(value = "id") Integer id){
 		machineService.deleteMachine(id);
         return "success";
-    }
+    } 
 }

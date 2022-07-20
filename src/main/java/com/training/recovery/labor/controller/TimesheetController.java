@@ -59,5 +59,5 @@ public class TimesheetController {
     public String delete(@PathVariable(value = "id") Integer id){
 		timesheetService.deleteTimesheet(id);
         return "success";
-    }
+    } 
 }
