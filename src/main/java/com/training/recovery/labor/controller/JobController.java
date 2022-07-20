@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.training.recovery.labor.model.Job;
+import com.training.recovery.labor.model.Machine;
 import com.training.recovery.labor.service.JobService;
 
 @RestController
@@ -39,8 +40,8 @@ public class JobController {
         return jobService.getJobList();
     }
 	
-	@PostMapping("/job")
-    public Job add(@RequestBody Job job){
+	@RequestMapping(value = "/job", method = RequestMethod.POST)
+    public Job create(@RequestBody Job job){
         return jobService.saveJob(job);
     }
 	

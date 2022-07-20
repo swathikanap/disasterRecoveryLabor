@@ -15,7 +15,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name="timescheets")
+@Table(name="timesheets")
 public class Timesheet {
 	
 	@Id
