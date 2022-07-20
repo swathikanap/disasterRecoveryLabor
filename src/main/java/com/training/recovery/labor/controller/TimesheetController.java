@@ -33,6 +33,17 @@ public class TimesheetController {
 	    }      
 	}
 	
+	@PutMapping("/timesheet/{id}")
+	public ResponseEntity<?> update(@RequestBody Timesheet timesheet, @PathVariable Integer id) {
+	    try {
+	      timesheet.setId(id);
+	      timesheetService.saveTimesheet(timesheet);
+	      return new ResponseEntity<>(HttpStatus.OK);	
+	    }catch (NoSuchElementException e) {
+	    	return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	    }      
+	}
+	
 	@RequestMapping(value="/timesheet", method = RequestMethod.GET)
     public List<Timesheet> listTimesheet(){
         return timesheetService.getTimesheetList();
