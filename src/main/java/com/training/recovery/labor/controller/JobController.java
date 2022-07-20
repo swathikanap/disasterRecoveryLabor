@@ -35,6 +35,17 @@ public class JobController {
 	    }      
 	}
 	
+	@PutMapping("/job/{id}")
+	public ResponseEntity<?> update(@RequestBody Job job, @PathVariable Integer id) {
+	    try {
+	      job.setId(id);
+	      jobService.saveJob(job);
+	      return new ResponseEntity<>(HttpStatus.OK);	
+	    }catch (NoSuchElementException e) {
+	    	return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	    }      
+	}
+	
 	@RequestMapping(value="/job", method = RequestMethod.GET)
     public List<Job> listJob(){
         return jobService.getJobList();
