@@ -33,6 +33,17 @@ public class MachineController {
 	    }      
 	}
 	
+	@PutMapping("/machine/{id}")
+	public ResponseEntity<?> update(@RequestBody Machine machine, @PathVariable Integer id) {
+	    try {
+	      machine.setId(id);
+	      machineService.saveMachine(machine);
+	      return new ResponseEntity<>(HttpStatus.OK);	
+	    }catch (NoSuchElementException e) {
+	    	return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	    }      
+	}
+	
 	@RequestMapping(value="/machine", method = RequestMethod.GET)
     public List<Machine> listMachine(){
         return machineService.getMachineList();
