@@ -19,7 +19,7 @@ import com.training.recovery.labor.model.JobCode;
 import com.training.recovery.labor.service.JobCodeService;
 
 @RestController
-@RequestMapping("/disaster/recovery/")
+@RequestMapping("/jobmanagement/")
 public class JobCodeController {
 
 	private final JobCodeService jobCodeService;
