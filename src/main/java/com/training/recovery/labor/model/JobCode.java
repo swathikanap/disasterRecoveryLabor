@@ -1,15 +1,11 @@
 package com.training.recovery.labor.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "job_code_mgmt")
@@ -17,8 +13,10 @@ public class JobCode {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	@NotEmpty
 	private String jobname;
 	private String description;
+	@NotEmpty
 	private int hourlyrate;
 	private int maxhrsperday;
 	public int getId() {
