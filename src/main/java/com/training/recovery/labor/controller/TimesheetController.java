@@ -30,7 +30,7 @@ public class TimesheetController {
 	        return new ResponseEntity<Timesheet>(timesheet, HttpStatus.OK);
 	    } catch (NoSuchElementException e) {
 	        return new ResponseEntity<Timesheet>(HttpStatus.NOT_FOUND);
-	    }      
+	    }
 	}
 	
 	@PutMapping("/timesheet/{id}")
