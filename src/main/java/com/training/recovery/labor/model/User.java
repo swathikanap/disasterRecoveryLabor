@@ -28,8 +28,5 @@ public class User {
 	
 	@NotEmpty
 	private String password;
-	
-	@NotEmpty
-	private String user_role;
 
 }
